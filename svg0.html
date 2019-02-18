@@ -6,8 +6,12 @@
     <title>svg0</title>
 </head>
 <body>
-<label for="input">SVG markup</label><textarea id="input"></textarea>
-<div id="output"></div>
+<label class="markup-label" for="unoptimized-markup">Unoptimized markup</label>
+<textarea class="unoptimized-markup" id="unoptimized-markup" autofocus="autofocus"></textarea>
+<div class="unoptimized-image" id="unoptimized-image"></div>
 <script src="svg0.js"></script>
+<label class="markup-label" for="optimized-markup">Optimized markup</label>
+<textarea class="optimized-markup" readonly="readonly" id="optimized-markup"></textarea>
+<div class="optimized-image" id="optimized-image"></div>
 </body>
 </html>
