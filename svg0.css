@@ -1,3 +1,15 @@
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
 .markup-label {
     display: block;
+}
+
+.markup-textarea {
+    height: 45vh;
+    width: 40vw;
+    resize: none;
 }

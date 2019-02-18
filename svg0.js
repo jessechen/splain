@@ -4,8 +4,10 @@ inputEl.addEventListener('keyup', (e) => {
     const outputEl = document.getElementById('optimized-markup');
     outputEl.innerText = inputEl.value;
 
-    const renderEl = document.getElementById('unoptimized-image');
-    renderEl.innerHTML = inputEl.value;
+    const inputRenderEl = document.getElementById('unoptimized-image');
+    inputRenderEl.innerHTML = inputEl.value;
+    const outputRenderEl = document.getElementById('optimized-image');
+    outputRenderEl.innerHTML = outputEl.value;
 });
 
 document.addEventListener('DOMContentLoaded', () => {

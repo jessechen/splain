@@ -6,12 +6,18 @@
     <title>svg0</title>
 </head>
 <body>
-<label class="markup-label" for="unoptimized-markup">Unoptimized markup</label>
-<textarea class="unoptimized-markup" id="unoptimized-markup" autofocus="autofocus"></textarea>
-<div class="unoptimized-image" id="unoptimized-image"></div>
-<script src="svg0.js"></script>
-<label class="markup-label" for="optimized-markup">Optimized markup</label>
-<textarea class="optimized-markup" readonly="readonly" id="optimized-markup"></textarea>
-<div class="optimized-image" id="optimized-image"></div>
+<div class="content">
+    <div class="markup-container">
+        <label class="markup-label" for="unoptimized-markup">Unoptimized markup</label>
+        <textarea class="unoptimized-markup markup-textarea" id="unoptimized-markup" autofocus="autofocus"></textarea>
+    </div>
+    <div class="unoptimized-image" id="unoptimized-image"></div>
+    <div class="markup-container">
+        <label class="markup-label" for="optimized-markup">Optimized markup</label>
+        <textarea class="optimized-markup markup-textarea" readonly="readonly" id="optimized-markup"></textarea>
+    </div>
+    <div class="optimized-image" id="optimized-image"></div>
+    <script src="svg0.js"></script>
+</div>
 </body>
 </html>
