@@ -8,6 +8,11 @@
     display: block;
 }
 
+
+svg {
+    border: 1px solid black;
+}
+
 .markup-textarea {
     height: 45vh;
     width: 40vw;

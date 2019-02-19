@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.canvas-container {
+    flex: 0 0 99vmin;
+}
+
+.canvas {
+    border: 1px solid #ccc;
+    height: 99vmin;
+    width: 99vmin;
+}
+
+.control {
+    cursor: pointer;
+}
+
+.markup-container {
+    width: 100%;
+}
+
+.markup {
+    padding: 10px;
+    font-size: 16px;
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    resize: none;
+    height: calc(99vh - 20px);
+    width: calc(100% - 20px);
+}

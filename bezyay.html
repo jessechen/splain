@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="bezyay.css"/>
+    <title>bezyay</title>
+</head>
+<body>
+<div class="content">
+    <div id="canvas-container" class="canvas-container">
+        <svg class="canvas" id="canvas" width="100" height="100" viewBox="0 0 100 100">
+            <path id="p" d="M30,30Q90 30 60 60" stroke="blue" fill="transparent"></path>
+            <circle id="c1" class="control" cx="30" cy="30" r="4" fill="#f00"></circle>
+            <circle id="c2" class="control" cx="90" cy="30" r="4" fill="#f00"></circle>
+            <circle id="c3" class="control" cx="60" cy="60" r="4" fill="#f00"></circle>
+        </svg>
+    </div>
+    <div class="markup-container">
+        <textarea class="markup" id="markup" cols="1" rows="1"></textarea>
+    </div>
+    <script src="bezyay.js"></script>
+</div>
+</body>
+</html>
