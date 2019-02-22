@@ -1,3 +1,28 @@
+const quadraticMarkup = "<path id=\"p\" d=\"M30,30Q90 30 60 60\" stroke=\"#00f\" stroke-width=\"2\" fill=\"transparent\"></path>\n" +
+    "            <circle id=\"c1\" class=\"control\" cx=\"30\" cy=\"30\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "            <circle id=\"c2\" class=\"control\" cx=\"90\" cy=\"30\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "            <circle id=\"c3\" class=\"control\" cx=\"60\" cy=\"60\" r=\"4\" fill=\"#f00\"></circle>";
+const cubicMarkup = "<line id=\"l1\" x1=\"30\" y1=\"60\" x2=\"20\" y2=\"30\" stroke=\"#88f\"></line>\n" +
+    "                <line id=\"l2\" x1=\"70\" y1=\"30\" x2=\"60\" y2=\"60\" stroke=\"#88f\"></line>\n" +
+    "                <path id=\"p\" d=\"M30,60C20 30,70 30,60 60\" stroke=\"#00f\" stroke-width=\"2\" fill=\"transparent\"></path>\n" +
+    "                <circle id=\"c1\" class=\"control\" cx=\"30\" cy=\"60\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "                <circle id=\"c2\" class=\"control\" cx=\"20\" cy=\"30\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "                <circle id=\"c3\" class=\"control\" cx=\"70\" cy=\"30\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "                <circle id=\"c4\" class=\"control\" cx=\"60\" cy=\"60\" r=\"4\" fill=\"#f00\"></circle>";
+const continuousMarkup = "<line id=\"l1\" x1=\"20\" y1=\"60\" x2=\"10\" y2=\"30\" stroke=\"#88f\"></line>\n" +
+    "            <line id=\"l2\" x1=\"60\" y1=\"30\" x2=\"50\" y2=\"60\" stroke=\"#88f\"></line>\n" +
+    "            <line id=\"l3\" x1=\"50\" y1=\"60\" x2=\"40\" y2=\"90\" stroke=\"#484\"></line>\n" +
+    "            <line id=\"l4\" x1=\"90\" y1=\"30\" x2=\"80\" y2=\"60\" stroke=\"#88f\"></line>\n" +
+    "            <path id=\"p\" d=\"M20,60C10 30,60 30,50 60S90 30,80 60\" stroke=\"#00f\" stroke-width=\"2\" fill=\"transparent\"></path>\n" +
+    "            <circle id=\"c1\" class=\"control\" cx=\"20\" cy=\"60\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "            <circle id=\"c2\" class=\"control\" cx=\"10\" cy=\"30\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "            <circle id=\"c3\" class=\"control\" cx=\"60\" cy=\"30\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "            <circle id=\"c4\" class=\"control\" cx=\"50\" cy=\"60\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "            <circle id=\"c3b\" cx=\"40\" cy=\"90\" r=\"4\" fill=\"#080\"></circle>\n" +
+    "            <circle id=\"c5\" class=\"control\" cx=\"90\" cy=\"30\" r=\"4\" fill=\"#f00\"></circle>\n" +
+    "            <circle id=\"c6\" class=\"control\" cx=\"80\" cy=\"60\" r=\"4\" fill=\"#f00\"></circle>";
+const markupRegistry = [quadraticMarkup, cubicMarkup, continuousMarkup];
+
 let dragObject = null;
 const canvas = document.getElementById('canvas');
 const sizingPoint = canvas.createSVGPoint();
@@ -49,6 +74,14 @@ const handleKeyup = function() {
     attachControlEvents();
 };
 
+const handleTabClick = function(e) {
+    document.getElementsByClassName('tab active')[0].className = 'tab';
+    e.target.className = 'tab active';
+    const markup = markupRegistry[parseInt(e.target.getAttribute('data-markup'), 10)];
+    document.getElementById('markup').innerText = markup;
+    handleKeyup();
+};
+
 const updateUi = function() {
     document.getElementById('markup').innerText = canvas.innerHTML;
 };
@@ -61,6 +94,10 @@ const attachControlEvents = function() {
 };
 
 attachControlEvents();
+const tabs = document.getElementsByClassName('tab');
+Array.prototype.forEach.call(tabs, (tab) => {
+    tab.addEventListener('click', handleTabClick)
+});
 canvas.addEventListener('mousemove', handleMousemove);
 canvas.addEventListener('mouseup', handleMouseup);
 const markup = document.getElementById('markup');
