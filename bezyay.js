@@ -45,12 +45,12 @@ const handleMouseup = function() {
 const handleKeyup = function() {
     const inputEl = document.getElementById('markup');
     const renderEl = document.getElementById('canvas');
-    renderEl.innerHTML = inputEl.value;
+    renderEl.innerHTML = inputEl.innerText;
     attachControlEvents();
 };
 
 const updateUi = function() {
-    document.getElementById('markup').innerHTML = canvas.innerHTML;
+    document.getElementById('markup').innerText = canvas.innerHTML;
 };
 
 const attachControlEvents = function() {
