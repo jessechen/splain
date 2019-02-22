@@ -41,8 +41,48 @@ const recalculateCurve = function() {
     const y2 = parseInt(document.getElementById('c2').getAttribute('cy'), 10);
     const x3 = parseInt(document.getElementById('c3').getAttribute('cx'), 10);
     const y3 = parseInt(document.getElementById('c3').getAttribute('cy'), 10);
-    const curveString = `M${x1},${y1}Q${x2} ${y2} ${x3} ${y3}`;
-    const path = document.getElementById('p');
+    let curveString;
+    if (!document.getElementById('c4')) {
+        curveString = `M${x1},${y1}Q${x2} ${y2} ${x3} ${y3}`;
+    } else {
+        const x4 = parseInt(document.getElementById('c4').getAttribute('cx'), 10);
+        const y4 = parseInt(document.getElementById('c4').getAttribute('cy'), 10);
+        const line1 = document.getElementById("l1");
+        line1.setAttribute("x1", x1);
+        line1.setAttribute("y1", y1);
+        line1.setAttribute("x2", x2);
+        line1.setAttribute("y2", y2);
+        const line2 = document.getElementById("l2");
+        line2.setAttribute("x1", x3);
+        line2.setAttribute("y1", y3);
+        line2.setAttribute("x2", x4);
+        line2.setAttribute("y2", y4);
+        if (!document.getElementById('c5')) {
+            curveString = `M${x1},${y1}C${x2} ${y2},${x3} ${y3},${x4} ${y4}`;
+        } else {
+            const x5 = parseInt(document.getElementById('c5').getAttribute('cx'), 10);
+            const y5 = parseInt(document.getElementById('c5').getAttribute('cy'), 10);
+            const x6 = parseInt(document.getElementById('c6').getAttribute('cx'), 10);
+            const y6 = parseInt(document.getElementById('c6').getAttribute('cy'), 10);
+            const x3b = x4 + x4 - x3;
+            const y3b = y4 + y4 - y3;
+            const c3b = document.getElementById("c3b");
+            c3b.setAttribute("cx", x3b);
+            c3b.setAttribute("cy", y3b);
+            const line3 = document.getElementById("l3");
+            line3.setAttribute("x1", x3b);
+            line3.setAttribute("y1", y3b);
+            line3.setAttribute("x2", x4);
+            line3.setAttribute("y2", y4);
+            const line4 = document.getElementById("l4");
+            line4.setAttribute("x1", x5);
+            line4.setAttribute("y1", y5);
+            line4.setAttribute("x2", x6);
+            line4.setAttribute("y2", y6);
+            curveString = `M${x1},${y1}C${x2} ${y2},${x3} ${y3},${x4} ${y4}S${x5} ${y5},${x6} ${y6}`;
+        }
+    }
+    const path = document.getElementById("p");
     path.setAttribute('d', curveString);
     updateUi();
 };
