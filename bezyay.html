@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="bezyay.css"/>
+    <link rel="stylesheet" href="bezyayg.css"/>
     <title>bezyay</title>
 </head>
 <body>
-<div class="content">
+<div id="tabs-container" class="tabs-container">
+    <div id="tab-quadratic" class="tab active">Quadratic</div>
+    <div id="tab-cubic" class="tab">Cubic</div>
+    <div id="tab-continuous" class="tab">Continuous</div>
+</div>
+<div id="content" class="content">
     <div id="canvas-container" class="canvas-container">
         <svg class="canvas" id="canvas" width="100" height="100" viewBox="0 0 100 100">
             <path id="p" d="M30,30Q90 30 60 60" stroke="#00f" stroke-width="2" fill="transparent"></path>
