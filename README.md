@@ -5,12 +5,17 @@
 Production
 ----------
 
-[GitHub Pages](https://jessechen.github.io/splain/splain.html)
+[GitHub Pages](https://approximateknowledge.net/splain/)
 
-Setup
------
+Dev setup
+---------
 
-`python -m http.server`
+`python3 -m http.server`
+
+Deployment
+----------
+
+Continuously deployed on push
 
 License
 -------
